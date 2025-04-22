@@ -82,6 +82,11 @@ const HomePage = () => {
   
   const isFeaturedPage = new URLSearchParams(location.search).get("featured") === "true";
   
+  // Fix for the type error: Create a handler function with the correct type signature
+  const handlePriceRangeChange = (value: number[]) => {
+    setPriceRange([value[0], value[1]] as [number, number]);
+  };
+  
   return (
     <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
       {/* Hero Section */}
@@ -140,7 +145,7 @@ const HomePage = () => {
                       <SelectValue placeholder="All Brands" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">All Brands</SelectItem>
+                      <SelectItem value="all">All Brands</SelectItem>
                       {uniqueBrands.map(brand => (
                         <SelectItem key={brand} value={brand}>{brand}</SelectItem>
                       ))}
@@ -158,7 +163,7 @@ const HomePage = () => {
                       max={1000}
                       step={10}
                       value={priceRange}
-                      onValueChange={setPriceRange}
+                      onValueChange={handlePriceRangeChange}
                     />
                     <div className="flex items-center justify-between">
                       <span>${priceRange[0]}</span>
@@ -179,7 +184,7 @@ const HomePage = () => {
                       <SelectValue placeholder="Any Period" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">Any Period</SelectItem>
+                      <SelectItem value="any">Any Period</SelectItem>
                       <SelectItem value="day">Daily</SelectItem>
                       <SelectItem value="week">Weekly</SelectItem>
                       <SelectItem value="month">Monthly</SelectItem>
