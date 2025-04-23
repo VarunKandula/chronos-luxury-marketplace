@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 // Watch type definition
@@ -103,7 +102,8 @@ const mockWatches: Watch[] = [
     rentalPeriod: 'day',
     images: [
       'https://images.unsplash.com/photo-1548171915-cc30f57b2d70?q=80&w=1180&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=1740&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=1740&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1180&auto=format&fit=crop'
     ],
     description: 'The Omega Speedmaster, also known as the "Moonwatch," is a timeless chronograph that was the first watch worn on the moon.',
     specifications: {
@@ -131,7 +131,9 @@ const mockWatches: Watch[] = [
     rentalPeriod: 'day',
     images: [
       'https://images.unsplash.com/photo-1612520986361-3980b0f457e9?q=80&w=1170&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1612520961850-435ad79eaaee?q=80&w=1180&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1612520961850-435ad79eaaee?q=80&w=1180&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1170&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1170&auto=format&fit=crop'
     ],
     description: 'The Royal Oak is an iconic luxury sports watch with a distinctive octagonal bezel and "tapisserie" dial pattern.',
     specifications: {
