@@ -16,42 +16,44 @@ const WatchCard = ({ watch, featured }: WatchCardProps) => {
   };
 
   return (
-    <Card className={`overflow-hidden transition-all duration-300 hover:shadow-lg ${featured ? 'border-luxury-gold border-2' : ''}`}>
+    <Card className={`overflow-hidden hover-lift group border-bezel-light-gray ${featured ? 'ring-1 ring-bezel-black' : ''}`}>
       <div className="relative">
         {featured && (
-          <div className="absolute top-0 right-0 z-10 m-2">
-            <Badge variant="default" className="bg-luxury-gold hover:bg-luxury-gold/90">
+          <div className="absolute top-3 right-3 z-10">
+            <Badge variant="default" className="bg-bezel-black text-white text-xs px-2 py-1">
               Featured
             </Badge>
           </div>
         )}
         <Link to={`/watch/${watch.id}`}>
-          <div className="aspect-square overflow-hidden">
+          <div className="aspect-square overflow-hidden bg-bezel-light-gray">
             <img 
               src={watch.images[0]} 
               alt={`${watch.brand} ${watch.model}`} 
-              className="h-full w-full object-cover transition-transform duration-300 hover:scale-105" 
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" 
             />
           </div>
         </Link>
       </div>
-      <CardContent className="p-4">
-        <div className="mb-2 flex items-center justify-between">
-          <h3 className="text-lg font-medium">{watch.brand}</h3>
-          <span className="font-serif text-lg font-semibold text-luxury-navy">
+      <CardContent className="p-5">
+        <div className="mb-2 flex items-start justify-between">
+          <div className="flex-1">
+            <h3 className="text-base font-medium text-bezel-black tracking-tight">{watch.brand}</h3>
+            <p className="text-sm text-bezel-gray mt-0.5">{watch.model}</p>
+          </div>
+          <span className="font-serif text-base font-medium text-bezel-black">
             {formatPrice(watch.price, watch.rentalPeriod)}
           </span>
         </div>
-        <p className="text-sm text-gray-600">{watch.model}</p>
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Avatar className="h-6 w-6">
+            <Avatar className="h-5 w-5">
               <AvatarImage src={watch.ownerProfileImage} alt={watch.ownerName} />
-              <AvatarFallback>{watch.ownerName.charAt(0)}</AvatarFallback>
+              <AvatarFallback className="bg-bezel-light-gray text-bezel-black text-xs">{watch.ownerName.charAt(0)}</AvatarFallback>
             </Avatar>
-            <span className="text-xs text-gray-500">{watch.ownerName}</span>
+            <span className="text-xs text-bezel-gray">{watch.ownerName}</span>
           </div>
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-bezel-gray">
             {watch.specifications.condition}
           </div>
         </div>

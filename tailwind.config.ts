@@ -53,13 +53,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				luxury: {
-					navy: '#102C54',
-					gold: '#D4AF37',
-					silver: '#C0C0C0',
-					black: '#121212',
-					cream: '#F5F5F0',
-					muted: '#8A8A8A'
+				bezel: {
+					black: 'hsl(var(--bezel-black))',
+					'dark-gray': 'hsl(var(--bezel-dark-gray))',
+					gray: 'hsl(var(--bezel-gray))',
+					'light-gray': 'hsl(var(--bezel-light-gray))',
+					accent: 'hsl(var(--bezel-accent))',
+					blue: 'hsl(var(--bezel-blue))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -73,8 +73,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				serif: ['Playfair Display', 'serif'],
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				serif: ['Crimson Text', 'Georgia', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

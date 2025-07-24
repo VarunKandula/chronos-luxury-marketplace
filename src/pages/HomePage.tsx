@@ -91,20 +91,20 @@ const HomePage = () => {
     <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
       {/* Hero Section */}
       {!isFeaturedPage && !filters.searchTerm && (
-        <div className="mb-12 rounded-lg bg-luxury-navy p-8 text-white">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold">
-              Discover & Rent Luxury Timepieces
+        <div className="mb-16 bg-background py-16">
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mb-6 text-5xl font-semibold tracking-tight text-bezel-black md:text-6xl">
+              Rent Luxury Watches
             </h1>
-            <p className="mb-6 text-lg">
-              Access the world's most prestigious watches without the commitment of ownership.
-              Rent directly from collectors and enthusiasts.
+            <p className="mb-8 text-lg text-bezel-gray max-w-2xl mx-auto leading-relaxed">
+              Access the world's finest timepieces. From Rolex to Patek Philippe, 
+              experience luxury without the commitment of ownership.
             </p>
             <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-              <Button asChild size="lg" className="bg-luxury-gold hover:bg-luxury-gold/90 text-black">
-                <a href="#featured-watches">Browse Featured Watches</a>
+              <Button asChild size="lg" className="bg-bezel-black hover:bg-bezel-dark-gray text-white px-8 py-3 text-base">
+                <a href="#featured-watches">Explore Collection</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="minimal-button px-8 py-3 text-base">
                 <a href="/list-watch">List Your Watch</a>
               </Button>
             </div>
@@ -113,16 +113,16 @@ const HomePage = () => {
       )}
       
       {/* Page Title */}
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold">
+      <div className="mb-10">
+        <h2 className="text-2xl font-medium text-bezel-black tracking-tight">
           {isFeaturedPage
             ? "Featured Watches"
             : filters.searchTerm
             ? `Search Results for "${filters.searchTerm}"`
-            : "Discover Luxury Watches"}
+            : "Available Watches"}
         </h2>
-        <p className="mt-2 text-gray-600">
-          {displayWatches.length} watches available for rent
+        <p className="mt-1 text-sm text-bezel-gray">
+          {displayWatches.length} watches available
         </p>
       </div>
       
@@ -130,8 +130,8 @@ const HomePage = () => {
       <div className="flex flex-col lg:flex-row lg:space-x-8">
         {/* Filters Sidebar */}
         <div className="mb-8 w-full lg:mb-0 lg:w-1/4">
-          <div className="rounded-lg border bg-white p-4 shadow-sm">
-            <h3 className="mb-4 text-xl font-medium">Filters</h3>
+          <div className="rounded border border-bezel-light-gray bg-background p-6">
+            <h3 className="mb-6 text-lg font-medium text-bezel-black">Filters</h3>
             
             <Accordion type="single" collapsible defaultValue="brand">
               <AccordionItem value="brand">
@@ -206,17 +206,19 @@ const HomePage = () => {
               </AccordionItem>
             </Accordion>
             
-            <div className="mt-6 grid grid-cols-2 gap-4">
+            <div className="mt-6 space-y-3">
               <Button
                 onClick={applyFilters}
-                className="w-full bg-luxury-navy hover:bg-luxury-navy/90"
+                className="w-full bg-bezel-black hover:bg-bezel-dark-gray text-white"
+                size="sm"
               >
                 Apply Filters
               </Button>
               <Button
                 onClick={resetFilters}
                 variant="outline"
-                className="w-full"
+                className="w-full minimal-button"
+                size="sm"
               >
                 Reset
               </Button>
@@ -227,13 +229,13 @@ const HomePage = () => {
         {/* Watches Grid */}
         <div className="w-full lg:w-3/4">
           {displayWatches.length === 0 ? (
-            <div className="flex h-64 flex-col items-center justify-center rounded-lg border bg-white p-8 text-center">
-              <h3 className="mb-2 text-xl font-medium">No watches found</h3>
-              <p className="mb-4 text-gray-600">Try adjusting your filters or search criteria</p>
-              <Button onClick={resetFilters}>Reset Filters</Button>
+            <div className="flex h-64 flex-col items-center justify-center rounded border border-bezel-light-gray bg-background p-8 text-center">
+              <h3 className="mb-2 text-lg font-medium text-bezel-black">No watches found</h3>
+              <p className="mb-4 text-sm text-bezel-gray">Try adjusting your filters or search criteria</p>
+              <Button onClick={resetFilters} variant="outline" className="minimal-button">Reset Filters</Button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {displayWatches.map((watch) => (
                 <WatchCard key={watch.id} watch={watch} featured={watch.featured} />
               ))}
